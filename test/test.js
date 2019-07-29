@@ -90,7 +90,7 @@ contract("Market", async accounts => {
 	  assert.equal(itemInfo[3], 10 , "the item quantity is not correct");
   });
 
-  // with this test we check the whole bying process when an account purchase an item
+  // with this test we check the whole buying process when an account purchase an item
   it("check purchase", async function() {
 	  let addNewOwner = await instance.addOwner(accounts[6], {from: accounts[0]});
     let addNewStore = await instance.addNewStore("0x6161000000000000000000000000000000000000000000000000000000000000", {from: accounts[6]});
@@ -126,7 +126,7 @@ contract("Market", async accounts => {
   });
 
   // with this test we examine the possibility that a shopper interacted with the smart contract, without using the front end of the application,
-  // and he accidentaly sent more value so we check whether he can take the extra value back
+  // and he accidentally sent more value so we check whether he can take the extra value back
   it("check purchase with more value", async function() {
 	  let addNewOwner = await instance.addOwner(accounts[7], {from: accounts[0]});
     let addNewStore = await instance.addNewStore("0x6161000000000000000000000000000000000000000000000000000000000000", {from: accounts[7]});
