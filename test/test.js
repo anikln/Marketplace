@@ -76,7 +76,7 @@ contract("Market", async accounts => {
 	  assert.equal(storesArray[0], 0, "the array is not empty, the store is not deleted successfully");
   });
 
-  // with this test we ensure that store owners are able to mange their storefronts and they can add new items
+  // with this test we ensure that store owners are able to manage their storefronts and they can add new items
   it("Owner can add new items to his store", async function() {
     let addNewOwner = await instance.addOwner(accounts[2], {from: accounts[0]});
     let addNewStore = await instance.addNewStore("0x737472696e670000000000000000000000000000000000000000000000000000", {from: accounts[2]});

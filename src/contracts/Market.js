@@ -1,3 +1,4 @@
+// address of the contract in Ethreum Ropste Testnet export const MARKET_ADDRESS = '0xFbE3f44Fc782Db2A79ab9009132caeCA5Af05E04'
 export const MARKET_ADDRESS = '0x52cfb2A1C6FABf9463E4110c3AAb27f053053151'
 
 export const MARKET_ABI = [

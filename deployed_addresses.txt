@@ -1,0 +1,1 @@
+The contracts are successfully deployed at Ethereum Ropsten Testnet. The "Market.sol" smart contract has the address "0xFbE3f44Fc782Db2A79ab9009132caeCA5Af05E04" and the "Registry.sol" smart contract has the address "0x87e5128e67D2d96aa2d5EdDaAb352CD8592eBcF4".
