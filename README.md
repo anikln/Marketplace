@@ -36,7 +36,7 @@ These steps are for installing in Ubuntu 16.04 but it should be compantible and 
 
 #### Step 1. Clone the project
 In the terminal execute the command:
-``` git clone  ```
+``` git clone https://github.com/anikln/Marketplace.git  ```
 
 #### Step 2. Install dependencies
 Then execute the following:
@@ -68,7 +68,7 @@ Keep in mind that everytime you run ganache-cli you have to migrate the smart co
 #### Step 6. Run the Front End Application
 Now you can run the front end of the application and interact with it. In the terminall shell, make sure you are still inside the folder marketplace, run:  
 `$ npm start`
-Wait for a while and a browser tab will open in the URL: http://localhost:3000. A Metamask pop up will come app requesting to connect to the application. Click accept and now you can access the application. From Metamask you can choose one of the available addresses and use it to interact with the application. Because truffle uses by default for the deployement the first of the available accounts provided by ganache-cli instance, the displayed Account 1 in Metamask is the manager of the store and the deployer of the smart contract to the blockchain instance.
+Wait for a while and a browser tab will open in the URL: http://localhost:3000. A Metamask pop up will come app requesting to connect to the application. Click accept and now you can access the application. From Metamask you can choose one of the available addresses and use it to interact with the application. Because truffle uses by default for the deployement the first of the available accounts provided by ganache-cli instance, the displayed Account 1 in Metamask is the manager of the store and the deployer of the smart contract to the blockchain instance. You can use this address and from the front-end of the app you can add new admins and owners. Their addresses could be the other addresses provided by ganache-cli. In that case after you add a new admin for example, you can change the selected Metamask account to his address and then go again to http://localhost:3000 and use the app as an admin. It is important to reload the page because the app will recognise that you no longer use the manager's account but it won't redirect you back to the front page.
 
 ## Running the tests
 
@@ -107,6 +107,10 @@ If you would like to deploy the smart contracts to Ethereum Mainnet or to one of
 Remember you would need some ether for the deployment. During development Ganache CLI provided some accounts with some test ether in order we are able to interact and test the contract and the application. But if you want to deploy to Ethereum Mainnet you have to have some real ether in your account. Also if you want to deploy to one of Ethereum Testnets you should also have in your account some test ether. In order to acquire them you use Metamask and ask some from a faucet https://faucet.metamask.io/.
 
 I have already deployed the smart contracts to Ethereum Ropsten Testnet if you would like to interact with them. The Registry smart contract is deployed at the address "0x87e5128e67D2d96aa2d5EdDaAb352CD8592eBcF4" and the Market smart contract is deployed at the address "0xFbE3f44Fc782Db2A79ab9009132caeCA5Af05E04". If you would like to use the smart contract deployed in Ropsten with the Dapp you should set the Market's contract address in the file "Market.js" which is in the folder src/contracts like you did previously in step 4.
+
+## Live Demo
+
+You can check the application in action in this link https://www.youtube.com/watch?v=A7XP_R1QXtc&feature=youtu.be&fbclid=IwAR0Y4fDCo_sdvZs3RtDnsslr1IRk1gWeQv4lYyZQKdCrkCWj-QRc9ElnNGM
 
 ## Authors
 

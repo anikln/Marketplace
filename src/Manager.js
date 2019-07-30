@@ -38,7 +38,6 @@ class Manager extends Component {
   }
 
 
-  //--- functions to add/remove OwnersStoresArray
   componentDidMount = async () => {
     let web3 = this.props.web3;
     let accounts = await web3.eth.getAccounts();

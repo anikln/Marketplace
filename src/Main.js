@@ -16,7 +16,6 @@ import getWeb3 from "./utils/getWeb3";
 //import Home from "./Home";
 import Admin from "./Admin";
 import Owner from "./Owner";
-//import Main from "./Main";
 import Guest from "./Guest";
 import Manager from "./Manager";
 class Main extends Component {
@@ -81,7 +80,6 @@ class Main extends Component {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
     var loginButton = ((this.state.storageValue === 1) ? (<NavLink to="/manager">Manager</NavLink>) : (this.state.storageValue === 2) ? (<NavLink to="/admin">AdminHome</NavLink>) : (this.state.storageValue === 3) ? (<NavLink to="/owner">OwnerHome</NavLink>) : (<NavLink to="/guest">GuestHome</NavLink>) );
-  //  var loginButton = ((this.state.storageValue === 1) ? (<NavLink to="/manager">Manager</NavLink>) : (this.state.storageValue === 2) ? (<p>AdminHome</p>) : (this.state.storageValue === 3) ? (<NavLink to="/owner">OwnerHome</NavLink>) : (<NavLink to="/guest">GuestHome</NavLink>) );
 
     return (
        <HashRouter>

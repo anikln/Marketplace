@@ -438,7 +438,7 @@ class Owner extends Component {
     });
     this.initializeStores();
   }
-// prepe o owner kai to index tou store na kanoun match gia na ektelestei
+
   detectEvent(_storeOwner, _storeIndex, _itemIndex){
     let owner = this.state.accounts[0];
     let sIndex = this.state.index +1 ;

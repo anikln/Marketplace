@@ -141,7 +141,6 @@ class Guest extends Component {
   detectEvent(_owner, _storeIndex){
     let owner = this.state.storeOwner;
     let store_index = this.state.storeIndex + 1;
-    console.log(_owner+" "+ owner+" "+store_index+" "+_storeIndex);
     if(_owner == owner && store_index == _storeIndex)
     {
       //if a new purchase is done, update
@@ -173,7 +172,6 @@ class Guest extends Component {
     // to avoid overhead, we set the maximum elements returned from the contract
     // each time to be 31
     let stores =[];
-    //let s;
     var string;
     for (var i=0; i < arrayloop.length; i++){
       j=0;
@@ -209,10 +207,6 @@ class Guest extends Component {
     this.setState({ storesArr: arrayFinal }, this.addEventListenerStore);
   }
 
-/*  addEventListenerStore = async() => {
-   this.state.contract.events.LogBuyItem({fromBlock: "latest"},(error, event) => { console.log(event); this.geti4(event.returnValues[1], event.returnValues[5]); });
-  }
-*/
   handleEnter(index, bytesName, _owner, _ipfsHash, event){
     event.preventDefault();
     this.setState({ displayState: 2, storeIndex: index, storeBytes: bytesName, storeOwner: _owner, ipfsHash: _ipfsHash}, this.initializeItems);
@@ -250,39 +244,9 @@ class Guest extends Component {
         }
       }
     }
-    // activate listener to change the quantity available
    this.setState({ itemsArr: arrayFinal });
   }
 
-  /*addEventListener= async() => {
-    this.state.contract.events.LogBuyItem({fromBlock: "latest"},(error, event) => { console.log(event); this.geti4(event.returnValues[1], event.returnValues[5]); });
-  }*/
-
-/*  geti4 = async(storeName, itemIndex) =>{
-    let name_bytes = this.state.storeBytes;
-    console.log(this.state.storeBytes);
-    console.log(itemIndex);
-    console.log(storeName);
-    console.log(name_bytes)
-    if(storeName == name_bytes)
-    {
-      //if a new purchase is done for this store, update
-      console.log("detected");
-      this.geti3(itemIndex);
-    }
-  }
-  */
-
-/*  geti3 = async(itemIndex) => {
-   //fetch item data
-   var info = await this.state.contract.methods.returnItemInfo(this.state.storeOwner, this.state.storeIndex + 1, itemIndex).call();
-   var quantity = info[2];
-   let arrayIt = this.state.itemsArr.map(el => (el.index == (itemIndex - 1) ? Object.assign({}, el, { quantity }) : el));
-   this.setState({
-      itemsArr: arrayIt
-    });
-  }
-*/
   GoBack(){
     this.setState({displayState: 1, itemsArr: [], storeIndex: "", storeBytes: "", storeOwner: "", quantityValue: "", indexOfItem: "", receipt: "" });
   }

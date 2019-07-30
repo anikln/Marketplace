@@ -1,7 +1,4 @@
-//import React from 'react';
-//import ReactDOM from 'react-dom';
-//import './index.css';
-//import App from './App';
+
 import * as serviceWorker from './serviceWorker';
 
 //ReactDOM.render(<App />, document.getElementById('root'));
@@ -21,16 +18,5 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-/*
-    ReactDOM.render((
-      <HashRouter>
-      <div>
-          <Route exact path="/" component={Main} />
-          <Route exact path="/owner" component={Owner} />
-      </div>
-      </HashRouter>
-    ),
-      document.getElementById("root")
-    );
-*/
+
 serviceWorker.unregister();

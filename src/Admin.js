@@ -29,8 +29,6 @@ class Admin extends Component {
 
   }
 
-  //9elw sto component did mount na vazei ola ta account ston pinaka ownersacc
-  //prepei na exw sto state enan pinaka ownersacc poy ua deixnei poiow exw valeei
   componentDidMount = async () => {
     let web3 = this.props.web3;
     let accounts = await web3.eth.getAccounts();
@@ -48,27 +46,28 @@ class Admin extends Component {
     if(!isAdmin){
       alert("Please switch to manager account again");
       return;
-    }
-    var len = await contract.methods.lenOwnersArr().call();
-    let array = [];
-    let arrayFinal = [];
-    let isActive = false;
-    for(var i = 0; i < len; i++){
-      array[i]= await contract.methods.storeOwners(i).call();
-    }
-    for(var i = 0; i < len; i++){
-      isActive = await contract.methods.isStoreOwner(array[i]).call();
-      if(isActive){
-        arrayFinal.push(array[i]);
+    }else {
+      var len = await contract.methods.lenOwnersArr().call();
+      let array = [];
+      let arrayFinal = [];
+      let isActive = false;
+      for(var i = 0; i < len; i++){
+        array[i]= await contract.methods.storeOwners(i).call();
       }
-    }
-    var uniqueArray = [];
-    for(var i=0; i < arrayFinal.length; i++){
-      if(uniqueArray.indexOf(arrayFinal[i]) === -1) {
-        uniqueArray.push(arrayFinal[i]);
+      for(var i = 0; i < len; i++){
+        isActive = await contract.methods.isStoreOwner(array[i]).call();
+        if(isActive){
+          arrayFinal.push(array[i]);
+        }
       }
+      var uniqueArray = [];
+      for(var i = 0; i < arrayFinal.length; i++){
+        if(uniqueArray.indexOf(arrayFinal[i]) === -1) {
+          uniqueArray.push(arrayFinal[i]);
+        }
+      }
+      this.setState({ ownersArr: uniqueArray, value: '', value2: '' });
     }
-    this.setState({ ownersArr: uniqueArray, value: '', value2: '' });
   }
 
   handleChange(event) {
@@ -88,13 +87,13 @@ class Admin extends Component {
     if(!isAdmin){
       alert("Please switch to manager account again");
       return;
+    }else{
+      let ownerAddress = this.state.value;
+      this.MarketContract_addOwner(ownerAddress);
     }
-    let ownerAddress = this.state.value;
-    this.MarketContract_addOwner(ownerAddress);
   }
 
   MarketContract_removeOwner(_ownerAddress) {
-    console.log("rem" + _ownerAddress);
     this.state.contract.methods.removeOwner(_ownerAddress).send({from: this.state.accounts[0]})
     .then((receipt) => { this.setState( {receipt: receipt.transactionHash } );});
   }
@@ -106,10 +105,10 @@ class Admin extends Component {
     if(!isAdmin){
       alert("Please switch to manager account again");
       return;
+    }else{
+      let ownerAddress2 = this.state.value2;
+      this.MarketContract_removeOwner(ownerAddress2);
     }
-    let ownerAddress2 = this.state.value2;
-    console.log("remdddd" + ownerAddress2);
-    this.MarketContract_removeOwner(ownerAddress2);
   }
 
   render() {
